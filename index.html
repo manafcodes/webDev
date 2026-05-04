@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beginner's Path to Islam — Your Journey Starts Here</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <!-- Imported Amiri Quran for authentic Mushaf script, and Inter for modern minimalist UI -->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#FFFFFF',
+            'bg-alt': '#F9FAFB', /* Very subtle off-white for section separation */
+            card: '#FFFFFF',
+            dark: '#111827',
+            'dark-hover': '#1F2937',
+            body: '#4B5563',
+            heading: '#111827',
+            accent: '#059669', /* Emerald Green */
+            border: '#E5E7EB',
+            light: '#FFFFFF',
+          },
+          fontFamily: {
+            serif: ['Inter', 'sans-serif'],
+            heading: ['Inter', 'sans-serif'],
+            mono: ['IBM Plex Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background-color: #FFFFFF;
+      color: #4B5563;
+    }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: -0.025em; color: #111827; }
+    
+    /* Custom scrollbars */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #E5E7EB; border-radius: 20px; }
+    
+    details > summary::-webkit-details-marker { display: none; }
+    details > summary { list-style: none; }
+    .tab-active {
+      background-color: #111827;
+      color: #FFFFFF;
+    }
+    .progress-ring { transition: stroke-dashoffset 0.5s ease; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeIn 0.4s ease forwards; }
+    @keyframes pulse-soft {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    .pulse-soft { animation: pulse-soft 2s ease-in-out infinite; }
+    
+    /* Authentic Uthmani Quranic Script Styling */
+    .arabic { 
+      font-family: 'Amiri Quran', serif; 
+      direction: rtl; 
+      line-height: 2.6 !important; 
+      font-size: 2rem !important; 
+      color: #111827;
+      font-weight: normal;
+    }
+    
+    @keyframes slideDown {
+      from { max-height: 0; opacity: 0; }
+      to { max-height: 2000px; opacity: 1; }
+    }
+    .slide-down { animation: slideDown 0.3s ease forwards; overflow: hidden; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 h-20 flex items-center px-6 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-border">
+    <div class="max-w-7xl mx-auto w-full flex items-center justify-between">
+      <a href="#hero" class="font-heading text-heading text-xl font-bold tracking-tight flex items-center gap-2">
+        <iconify-icon icon="lucide:book-open" class="text-accent" width="24"></iconify-icon>
+        BeginIslam
+      </a>
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#getting-started" class="font-mono text-xs uppercase tracking-widest text-body hover:text-accent transition-colors duration-150 font-medium">Start Here</a>
+        <a href="#pillars" class="font-mono text-xs uppercase tracking-widest text-body hover:text-accent transition-colors duration-150 font-medium">Pillars</a>
+        <a href="#prayer" class="font-mono text-xs uppercase tracking-widest text-body hover:text-accent transition-colors duration-150 font-medium">Prayer</a>
+        <a href="#duas" class="font-mono text-xs uppercase tracking-widest text-body hover:text-accent transition-colors duration-150 font-medium">Duas</a>
+        <a href="#quran" class="font-mono text-xs uppercase tracking-widest text-body hover:text-accent transition-colors duration-150 font-medium">Quran</a>
+        <a href="#faq" class="font-mono text-xs uppercase tracking-widest text-body hover:text-accent transition-colors duration-150 font-medium">FAQ</a>
+        <button onclick="window.openProgressModal()" class="font-mono text-xs uppercase tracking-widest bg-dark text-white font-bold px-6 py-2.5 rounded-md hover:bg-dark-hover transition-all duration-150 shadow-sm">
+          My Progress
+        </button>
+      </div>
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="md:hidden text-heading" onclick="window.toggleMobileMenu()">
+        <iconify-icon icon="lucide:menu" width="24"></iconify-icon>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="fixed inset-0 z-[60] hidden">
+    <div class="absolute inset-0 bg-dark/20 backdrop-blur-sm" onclick="window.toggleMobileMenu()"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-72 bg-bg border-l border-border p-6 pt-20 slide-down shadow-2xl">
+      <button class="absolute top-6 right-6 text-heading" onclick="window.toggleMobileMenu()">
+        <iconify-icon icon="lucide:x" width="24"></iconify-icon>
+      </button>
+      <div class="flex flex-col gap-5">
+        <a href="#getting-started" onclick="window.toggleMobileMenu()" class="font-mono font-medium text-sm uppercase tracking-widest text-body hover:text-accent transition-colors">Start Here</a>
+        <a href="#pillars" onclick="window.toggleMobileMenu()" class="font-mono font-medium text-sm uppercase tracking-widest text-body hover:text-accent transition-colors">Pillars</a>
+        <a href="#prayer" onclick="window.toggleMobileMenu()" class="font-mono font-medium text-sm uppercase tracking-widest text-body hover:text-accent transition-colors">Prayer</a>
+        <a href="#duas" onclick="window.toggleMobileMenu()" class="font-mono font-medium text-sm uppercase tracking-widest text-body hover:text-accent transition-colors">Duas</a>
+        <a href="#quran" onclick="window.toggleMobileMenu()" class="font-mono font-medium text-sm uppercase tracking-widest text-body hover:text-accent transition-colors">Quran</a>
+        <a href="#faq" onclick="window.toggleMobileMenu()" class="font-mono font-medium text-sm uppercase tracking-widest text-body hover:text-accent transition-colors">FAQ</a>
+        <hr class="border-border my-2">
+        <button onclick="window.openProgressModal(); window.toggleMobileMenu();" class="font-mono font-bold text-xs uppercase tracking-widest bg-dark text-white px-6 py-3 rounded-md hover:bg-dark-hover transition-all">My Progress</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MINIMALIST HERO -->
+  <section id="hero" class="relative min-h-[700px] h-screen flex items-center justify-center bg-bg" style="margin-top: 0;">
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'60\' height=\'60\' viewBox=\'0 0 60 60\'%3E%3Cg fill-rule=\'evenodd\'%3E%3Cg fill=\'%23059669\'%3E%3Cpath d=\'M30 30L15 15M30 30L45 15M30 30L15 45M30 30L45 45\' stroke=\'%23059669\' stroke-width=\'1\'/%3E%3Cpath d=\'M30 15L15 30L30 45L45 30z\' stroke=\'%23059669\' stroke-width=\'1\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+    
+    <img src="https://unsplash.com/photos/2lMK4dgqwFM/download?force=true&w=1920" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=1920&q=80'" alt="People walking near white dome building" class="absolute inset-0 w-full h-full object-cover opacity-10 blur-sm pointer-events-none">
+
+    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto mt-20">
+      <p class="arabic text-heading mb-8 pulse-soft text-center" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+      <p class="font-mono text-xs md:text-sm uppercase tracking-[0.2em] text-accent font-semibold mb-8">In the name of Allah, the Most Gracious, the Most Merciful</p>
+      
+      <h1 class="font-heading text-5xl md:text-7xl text-heading leading-[1.05] tracking-tight mb-6">
+        Your Journey Into<br>Islam Begins Here
+      </h1>
+      <p class="text-lg md:text-xl text-body leading-relaxed mb-10 max-w-2xl mx-auto font-light">
+        A warm, comprehensive guide for new Muslims — covering beliefs, practices, prayers, and the wisdom of the Quran, one step at a time.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#getting-started" class="font-mono font-bold text-xs uppercase tracking-widest bg-dark text-white px-8 py-3.5 rounded-md hover:bg-dark-hover transition-all duration-150 shadow-md hover:shadow-lg">
+          Start Learning
+        </a>
+        <a href="#pillars" class="font-mono font-bold text-xs uppercase tracking-widest text-dark border border-border bg-white px-8 py-3.5 rounded-md hover:bg-bg-alt transition-all duration-150 shadow-sm">
+          Explore Pillars
+        </a>
+      </div>
+    </div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+      <iconify-icon icon="lucide:chevron-down" class="text-body/50 animate-bounce" width="28"></iconify-icon>
+    </div>
+  </section>
+
+  <!-- WELCOME BANNER -->
+  <section class="py-16 px-6 border-t border-border bg-bg-alt">
+    <div class="max-w-7xl mx-auto">
+      <div class="bg-white border border-border rounded-2xl shadow-sm p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
+        <!-- Decorative subtle background PNG -->
+        <img src="https://static.vecteezy.com/system/resources/previews/010/834/232/original/3d-illustration-of-islamic-lantern-png.png" alt="" class="absolute -right-10 -top-10 w-48 opacity-10 pointer-events-none rotate-12">
+        
+        <div class="flex-shrink-0 w-20 h-20 rounded-full bg-emerald-50 flex items-center justify-center border border-emerald-100 relative z-10">
+          <iconify-icon icon="lucide:heart" class="text-accent" width="36"></iconify-icon>
+        </div>
+        <div class="relative z-10">
+          <h2 class="font-heading text-2xl md:text-3xl text-heading tracking-tight mb-3">Welcome to Your New Life</h2>
+          <p class="text-base leading-relaxed max-w-3xl text-body">
+            Becoming a Muslim is one of the most profound decisions you will ever make. Know that <strong class="text-heading">every sin you committed before is forgiven</strong> — you start with a completely clean slate. This website was built to walk beside you on this beautiful path. Take your time, ask questions, and remember: <em class="text-accent not-italic font-medium">Islam is not about perfection, it's about sincerity and progress.</em>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GETTING STARTED -->
+  <section id="getting-started" class="py-24 px-6 bg-bg">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="font-mono text-xs uppercase tracking-widest text-accent font-bold mb-4">First Steps</p>
+        <h2 class="font-heading text-4xl md:text-5xl text-heading tracking-tight leading-none mb-4">Getting Started</h2>
+        <p class="text-lg text-body max-w-2xl mx-auto font-light">These are the most important things to focus on in your first weeks and months as a Muslim.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-x-8 gap-y-12">
+        
+        <!-- Step 1 -->
+        <div class="group cursor-pointer" onclick="window.markComplete('step1')">
+          <div class="aspect-[4/3] rounded-xl bg-bg-alt overflow-hidden mb-5 relative border border-border shadow-sm">
+            <img src="https://unsplash.com/photos/6Aa4EeZTdqw/download?force=true&w=800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1565552643982-2d18cb330f5c?w=800&q=80'" alt="Brown and black concrete building (Kaaba)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-dark/10 group-hover:bg-transparent transition-colors"></div>
+            <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md border border-border z-10">
+              <iconify-icon icon="lucide:check" class="text-accent opacity-0 transition-opacity duration-300" width="18" id="checkicon-step1"></iconify-icon>
+            </div>
+            <div class="absolute top-3 left-3 font-mono font-bold text-[10px] uppercase tracking-widest bg-white/90 backdrop-blur text-heading px-3 py-1 rounded shadow-sm z-10">Step 1</div>
+          </div>
+          <h3 class="font-heading text-xl text-heading tracking-tight mb-2">Understand the Shahada</h3>
+          <p class="text-sm leading-relaxed text-body">The declaration of faith: <em>"Ashhadu an la ilaha illa Allah..."</em> I bear witness there is no god but Allah, and Muhammad is His messenger.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="group cursor-pointer" onclick="window.markComplete('step2')">
+          <div class="aspect-[4/3] rounded-xl bg-bg-alt overflow-hidden mb-5 relative border border-border shadow-sm">
+            <img src="https://unsplash.com/photos/K05jLZuAOls/download?force=true&w=800"" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1590076215667-87ebaddaf280?w=800&q=80'" alt="Inside of a building with a clock" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-dark/10 group-hover:bg-transparent transition-colors"></div>
+            <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md border border-border z-10">
+              <iconify-icon icon="lucide:check" class="text-accent opacity-0 transition-opacity duration-300" width="18" id="checkicon-step2"></iconify-icon>
+            </div>
+            <div class="absolute top-3 left-3 font-mono font-bold text-[10px] uppercase tracking-widest bg-white/90 backdrop-blur text-heading px-3 py-1 rounded shadow-sm z-10">Step 2</div>
+          </div>
+          <h3 class="font-heading text-xl text-heading tracking-tight mb-2">Learn How to Pray (Salah)</h3>
+          <p class="text-sm leading-relaxed text-body">Salah is the second pillar and your direct connection to Allah. Start by learning the movements and the Arabic recitations.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="group cursor-pointer" onclick="window.markComplete('step3')">
+          <div class="aspect-[4/3] rounded-xl bg-bg-alt overflow-hidden mb-5 relative border border-border shadow-sm">
+            <img src="https://unsplash.com/photos/2lMK4dgqwFM/download?force=true&w=800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1606105820464-67258380ab5c?w=800&q=80'" alt="People walking near white dome building" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-dark/10 group-hover:bg-transparent transition-colors"></div>
+            <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md border border-border z-10">
+              <iconify-icon icon="lucide:check" class="text-accent opacity-0 transition-opacity duration-300" width="18" id="checkicon-step3"></iconify-icon>
+            </div>
+            <div class="absolute top-3 left-3 font-mono font-bold text-[10px] uppercase tracking-widest bg-white/90 backdrop-blur text-heading px-3 py-1 rounded shadow-sm z-10">Step 3</div>
+          </div>
+          <h3 class="font-heading text-xl text-heading tracking-tight mb-2">Begin Reading the Quran</h3>
+          <p class="text-sm leading-relaxed text-body">Start with Surah Al-Fatiha (the opening chapter) and short surahs at the end of the Quran. Read a translation alongside the Arabic.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="group cursor-pointer" onclick="window.markComplete('step4')">
+          <div class="aspect-[4/3] rounded-xl bg-bg-alt overflow-hidden mb-5 relative border border-border shadow-sm">
+            <img src="https://unsplash.com/photos/ceNCWYqL8DY/download?force=true&w=800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800&q=80'" alt="Group of people standing around a large building" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-dark/10 group-hover:bg-transparent transition-colors"></div>
+            <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md border border-border z-10">
+              <iconify-icon icon="lucide:check" class="text-accent opacity-0 transition-opacity duration-300" width="18" id="checkicon-step4"></iconify-icon>
+            </div>
+            <div class="absolute top-3 left-3 font-mono font-bold text-[10px] uppercase tracking-widest bg-white/90 backdrop-blur text-heading px-3 py-1 rounded shadow-sm z-10">Step 4</div>
+          </div>
+          <h3 class="font-heading text-xl text-heading tracking-tight mb-2">Find a Muslim Community</h3>
+          <p class="text-sm leading-relaxed text-body">Visit a local mosque, join online communities, and connect with other Muslims. Islam is not meant to be practiced in isolation.</p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="group cursor-pointer" onclick="window.markComplete('step5')">
+          <div class="aspect-[4/3] rounded-xl bg-bg-alt overflow-hidden mb-5 relative border border-border shadow-sm">
+            <img src="https://unsplash.com/photos/6Aa4EeZTdqw/download?force=true&w=800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1565552643982-2d18cb330f5c?w=800&q=80'" alt="Brown and black concrete building (Kaaba)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-dark/10 group-hover:bg-transparent transition-colors"></div>
+            <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md border border-border z-10">
+              <iconify-icon icon="lucide:check" class="text-accent opacity-0 transition-opacity duration-300" width="18" id="checkicon-step5"></iconify-icon>
+            </div>
+            <div class="absolute top-3 left-3 font-mono font-bold text-[10px] uppercase tracking-widest bg-white/90 backdrop-blur text-heading px-3 py-1 rounded shadow-sm z-10">Step 5</div>
+          </div>
+          <h3 class="font-heading text-xl text-heading tracking-tight mb-2">Learn Daily Duas</h3>
+          <p class="text-sm leading-relaxed text-body">Duas are supplications — your personal conversations with Allah. Start with simple ones: waking up, eating, sleeping, entering the mosque.</p>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="group cursor-pointer" onclick="window.markComplete('step6')">
+          <div class="aspect-[4/3] rounded-xl bg-bg-alt overflow-hidden mb-5 relative border border-border shadow-sm">
+            <img src="https://unsplash.com/photos/K05jLZuAOls/download?force=true&w=800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1574246604907-db69ea6a1b24?w=800&q=80'" alt="Inside of a building with a clock" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-dark/10 group-hover:bg-transparent transition-colors"></div>
+            <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md border border-border z-10">
+              <iconify-icon icon="lucide:check" class="text-accent opacity-0 transition-opacity duration-300" width="18" id="checkicon-step6"></iconify-icon>
+            </div>
+            <div class="absolute top-3 left-3 font-mono font-bold text-[10px] uppercase tracking-widest bg-white/90 backdrop-blur text-heading px-3 py-1 rounded shadow-sm z-10">Step 6</div>
+          </div>
+          <h3 class="font-heading text-xl text-heading tracking-tight mb-2">Build Islamic Character</h3>
+          <p class="text-sm leading-relaxed text-body">Islam is about embodying qualities like honesty, patience, gratitude, kindness, and humility. The Prophet Muhammad ﷺ said: "The best among you are those who have the best character."</p>
+        </div>
+
+      </div>
+      <p class="text-center text-sm text-body/60 mt-10 font-mono">💡 Click on any image to mark it as completed</p>
+    </div>
+  </section>
+
+  <!-- FIVE PILLARS OF ISLAM (With 3D PNG Overlays) -->
+  <section id="pillars" class="py-24 px-6 bg-bg-alt border-y border-border">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="font-mono text-xs uppercase tracking-widest text-accent font-bold mb-4">Foundation</p>
+        <h2 class="font-heading text-4xl md:text-5xl text-heading tracking-tight leading-none mb-4">The Five Pillars of Islam</h2>
+        <p class="text-lg text-body max-w-2xl mx-auto font-light">These are the five core acts of worship that every Muslim must practice as the foundation of their faith.</p>
+      </div>
+      <div class="grid md:grid-cols-5 gap-6">
+        <div class="bg-white rounded-xl p-6 text-center border border-border hover:border-accent hover:shadow-md transition-all duration-300 group cursor-pointer shadow-sm relative overflow-hidden" onclick="window.openPillarModal(0)">
+          <!-- Decorative 3D PNG watermark -->
+          <img src="https://static.vecteezy.com/system/resources/previews/018/742/136/original/3d-star-gold-islamic-decoration-transparent-background-png.png" alt="" class="absolute -bottom-4 -right-4 w-28 opacity-[0.06] group-hover:opacity-[0.15] group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 pointer-events-none z-0">
+          
+          <div class="relative z-10">
+            <div class="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-4 group-hover:bg-emerald-100 transition-colors border border-emerald-100">
+              <iconify-icon icon="lucide:star" class="text-accent" width="28"></iconify-icon>
+            </div>
+            <div class="font-mono text-[10px] font-bold uppercase tracking-widest text-accent mb-2">1st Pillar</div>
+            <h3 class="font-heading text-lg text-heading mb-2">Shahada</h3>
+            <p class="text-sm text-body leading-relaxed">Declaration of Faith</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 text-center border border-border hover:border-accent hover:shadow-md transition-all duration-300 group cursor-pointer shadow-sm relative overflow-hidden" onclick="window.openPillarModal(1)">
+          <img src="https://static.vecteezy.com/system/resources/previews/011/552/394/original/3d-illustration-mosque-islamic-building-png.png" alt="" class="absolute -bottom-6 -right-4 w-32 opacity-[0.06] group-hover:opacity-[0.15] group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500 pointer-events-none z-0">
+          
+          <div class="relative z-10">
+            <div class="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-4 group-hover:bg-emerald-100 transition-colors border border-emerald-100">
+              <iconify-icon icon="lucide:clock" class="text-accent" width="28"></iconify-icon>
+            </div>
+            <div class="font-mono text-[10px] font-bold uppercase tracking-widest text-accent mb-2">2nd Pillar</div>
+            <h3 class="font-heading text-lg text-heading mb-2">Salah</h3>
+            <p class="text-sm text-body leading-relaxed">Five Daily Prayers</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 text-center border border-border hover:border-accent hover:shadow-md transition-all duration-300 group cursor-pointer shadow-sm relative overflow-hidden" onclick="window.openPillarModal(2)">
+          <img src="https://static.vecteezy.com/system/resources/previews/010/834/235/original/3d-illustration-of-islamic-charity-box-png.png" alt="" class="absolute -bottom-4 -right-4 w-28 opacity-[0.06] group-hover:opacity-[0.15] group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 pointer-events-none z-0">
+          
+          <div class="relative z-10">
+            <div class="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-4 group-hover:bg-emerald-100 transition-colors border border-emerald-100">
+              <iconify-icon icon="lucide:gem" class="text-accent" width="28"></iconify-icon>
+            </div>
+            <div class="font-mono text-[10px] font-bold uppercase tracking-widest text-accent mb-2">3rd Pillar</div>
+            <h3 class="font-heading text-lg text-heading mb-2">Zakat</h3>
+            <p class="text-sm text-body leading-relaxed">Almsgiving (2.5%)</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 text-center border border-border hover:border-accent hover:shadow-md transition-all duration-300 group cursor-pointer shadow-sm relative overflow-hidden" onclick="window.openPillarModal(3)">
+          <img src="https://static.vecteezy.com/system/resources/previews/010/834/232/original/3d-illustration-of-islamic-lantern-png.png" alt="" class="absolute -bottom-4 -right-2 w-28 opacity-[0.06] group-hover:opacity-[0.15] group-hover:scale-110 transition-all duration-500 pointer-events-none z-0">
+          
+          <div class="relative z-10">
+            <div class="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-4 group-hover:bg-emerald-100 transition-colors border border-emerald-100">
+              <iconify-icon icon="lucide:sunrise" class="text-accent" width="28"></iconify-icon>
+            </div>
+            <div class="font-mono text-[10px] font-bold uppercase tracking-widest text-accent mb-2">4th Pillar</div>
+            <h3 class="font-heading text-lg text-heading mb-2">Sawm</h3>
+            <p class="text-sm text-body leading-relaxed">Fasting in Ramadan</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 text-center border border-border hover:border-accent hover:shadow-md transition-all duration-300 group cursor-pointer shadow-sm relative overflow-hidden" onclick="window.openPillarModal(4)">
+          <img src="https://static.vecteezy.com/system/resources/previews/011/552/396/original/3d-illustration-kaaba-mecca-png.png" alt="" class="absolute -bottom-6 -right-6 w-32 opacity-[0.06] group-hover:opacity-[0.15] group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500 pointer-events-none z-0">
+          
+          <div class="relative z-10">
+            <div class="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-4 group-hover:bg-emerald-100 transition-colors border border-emerald-100">
+              <iconify-icon icon="lucide:map-pin" class="text-accent" width="28"></iconify-icon>
+            </div>
+            <div class="font-mono text-[10px] font-bold uppercase tracking-widest text-accent mb-2">5th Pillar</div>
+            <h3 class="font-heading text-lg text-heading mb-2">Hajj</h3>
+            <p class="text-sm text-body leading-relaxed">Pilgrimage to Mecca</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLAR DETAIL MODAL -->
+  <div id="pillarModal" class="fixed inset-0 z-[70] hidden items-center justify-center p-6" style="background: rgba(17,24,39,0.5); backdrop-filter: blur(4px);">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-8 md:p-12 relative shadow-2xl border border-border">
+      <button onclick="window.closePillarModal()" class="absolute top-6 right-6 text-body hover:text-heading transition-colors bg-bg-alt p-2 rounded-full">
+        <iconify-icon icon="lucide:x" width="20"></iconify-icon>
+      </button>
+      <div id="pillarModalContent"></div>
+    </div>
+  </div>
+
+  <!-- ARTICLES OF FAITH (With subtle arabesque pattern overlay) -->
+  <section id="iman" class="py-24 px-6 bg-bg">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="font-mono text-xs uppercase tracking-widest text-accent font-bold mb-4">Beliefs</p>
+        <h2 class="font-heading text-4xl md:text-5xl text-heading tracking-tight leading-none mb-4">Six Articles of Faith (Iman)</h2>
+        <p class="text-lg text-body max-w-2xl mx-auto font-light">These are the six core beliefs that every Muslim must hold in their heart.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white border border-border rounded-xl p-8 hover:border-accent transition-colors duration-300 shadow-sm relative overflow-hidden group">
+          <div class="absolute inset-0 opacity-[0.02] group-hover:opacity-[0.05] transition-opacity duration-500 pointer-events-none z-0" style="background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');"></div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-4 mb-5">
+              <div class="w-10 h-10 rounded-full bg-bg-alt border border-border flex items-center justify-center font-mono text-sm text-heading font-bold">1</div>
+              <h3 class="font-heading text-xl text-heading tracking-tight">Belief in Allah</h3>
+            </div>
+            <p class="text-sm leading-relaxed text-body">Allah is the One God — the Creator, Sustainer, and Judge of all existence. He has no partners, no children, and no equal. He is the Most Merciful, the Most Wise, and the Most Just.</p>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-border rounded-xl p-8 hover:border-accent transition-colors duration-300 shadow-sm relative overflow-hidden group">
+          <div class="absolute inset-0 opacity-[0.02] group-hover:opacity-[0.05] transition-opacity duration-500 pointer-events-none z-0" style="background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');"></div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-4 mb-5">
+              <div class="w-10 h-10 rounded-full bg-bg-alt border border-border flex items-center justify-center font-mono text-sm text-heading font-bold">2</div>
+              <h3 class="font-heading text-xl text-heading tracking-tight">Belief in Angels</h3>
+            </div>
+            <p class="text-sm leading-relaxed text-body">Angels (Mala'ika) are created from light and carry out Allah's commands. They have no free will. Jibreel (Gabriel) brought revelations, Mikail manages provisions, Israfil will blow the trumpet.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-border rounded-xl p-8 hover:border-accent transition-colors duration-300 shadow-sm relative overflow-hidden group">
+          <div class="absolute inset-0 opacity-[0.02] group-hover:opacity-[0.05] transition-opacity duration-500 pointer-events-none z-0" style="background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');"></div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-4 mb-5">
+              <div class="w-10 h-10 rounded-full bg-bg-alt border border-border flex items-center justify-center font-mono text-sm text-heading font-bold">3</div>
+              <h3 class="font-heading text-xl text-heading tracking-tight">Divine Books</h3>
+            </div>
+            <p class="text-sm leading-relaxed text-body">Allah revealed scriptures: the Torah to Musa, Psalms to Dawud, Gospel to Isa, and the Quran to Muhammad ﷺ. The Quran is the final, preserved, and unaltered revelation.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-border rounded-xl p-8 hover:border-accent transition-colors duration-300 shadow-sm relative overflow-hidden group">
+          <div class="absolute inset-0 opacity-[0.02] group-hover:opacity-[0.05] transition-opacity duration-500 pointer-events-none z-0" style="background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');"></div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-4 mb-5">
+              <div class="w-10 h-10 rounded-full bg-bg-alt border border-border flex items-center justify-center font-mono text-sm text-heading font-bold">4</div>
+              <h3 class="font-heading text-xl text-heading tracking-tight">Belief in Prophets</h3>
+            </div>
+            <p class="text-sm leading-relaxed text-body">Allah sent prophets to guide every nation — from Adam, Nuh, Ibrahim, Musa, and Isa, to the final messenger, Muhammad ﷺ. All taught the same core message: worship Allah alone.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-border rounded-xl p-8 hover:border-accent transition-colors duration-300 shadow-sm relative overflow-hidden group">
+          <div class="absolute inset-0 opacity-[0.02] group-hover:opacity-[0.05] transition-opacity duration-500 pointer-events-none z-0" style="background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');"></div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-4 mb-5">
+              <div class="w-10 h-10 rounded-full bg-bg-alt border border-border flex items-center justify-center font-mono text-sm text-heading font-bold">5</div>
+              <h3 class="font-heading text-xl text-heading tracking-tight">Day of Judgment</h3>
+            </div>
+            <p class="text-sm leading-relaxed text-body">Every soul will be resurrected and held accountable. A scale will weigh good and bad deeds. Ultimately, Allah's mercy determines where each soul spends eternity.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-border rounded-xl p-8 hover:border-accent transition-colors duration-300 shadow-sm relative overflow-hidden group">
+          <div class="absolute inset-0 opacity-[0.02] group-hover:opacity-[0.05] transition-opacity duration-500 pointer-events-none z-0" style="background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');"></div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-4 mb-5">
+              <div class="w-10 h-10 rounded-full bg-bg-alt border border-border flex items-center justify-center font-mono text-sm text-heading font-bold">6</div>
+              <h3 class="font-heading text-xl text-heading tracking-tight">Divine Decree (Qadar)</h3>
+            </div>
+            <p class="text-sm leading-relaxed text-body">Allah has knowledge of everything past, present, and future. What He wills happens. This doesn't negate human free will — we choose our actions, but Allah knows what we'll choose.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRAYER GUIDE -->
+  <section id="prayer" class="py-24 px-6 bg-bg-alt border-y border-border">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="font-mono text-xs uppercase tracking-widest text-accent font-bold mb-4">Essential Practice</p>
+        <h2 class="font-heading text-4xl md:text-5xl text-heading tracking-tight leading-none mb-4">How to Pray (Salah)</h2>
+        <p class="text-lg text-body max-w-2xl mx-auto font-light">The prayer is the backbone of a Muslim's day. Here's a simplified breakdown of the five daily prayers.</p>
+      </div>
+
+      <!-- Prayer Times Tabs -->
+      <div class="flex flex-wrap justify-center gap-2 mb-12 bg-white p-2 rounded-xl border border-border w-fit mx-auto shadow-sm">
+        <button onclick="window.switchPrayerTab(0)" class="prayer-tab font-mono font-bold text-xs uppercase tracking-wider px-6 py-2.5 rounded-lg transition-all duration-150 tab-active" data-tab="0">Fajr</button>
+        <button onclick="window.switchPrayerTab(1)" class="prayer-tab font-mono font-bold text-xs uppercase tracking-wider px-6 py-2.5 rounded-lg text-body hover:bg-bg-alt transition-all duration-150" data-tab="1">Dhuhr</button>
+        <button onclick="window.switchPrayerTab(2)" class="prayer-tab font-mono font-bold text-xs uppercase tracking-wider px-6 py-2.5 rounded-lg text-body hover:bg-bg-alt transition-all duration-150" data-tab="2">Asr</button>
+        <button onclick="window.switchPrayerTab(3)" class="prayer-tab font-mono font-bold text-xs uppercase tracking-wider px-6 py-2.5 rounded-lg text-body hover:bg-bg-alt transition-all duration-150" data-tab="3">Maghrib</button>
+        <button onclick="window.switchPrayerTab(4)" class="prayer-tab font-mono font-bold text-xs uppercase tracking-wider px-6 py-2.5 rounded-lg text-body hover:bg-bg-alt transition-all duration-150" data-tab="4">Isha</button>
+      </div>
+
+      <!-- Prayer Tab Content -->
+      <div id="prayerTabContent" class="max-w-3xl mx-auto">
+        <!-- Content injected by JS -->
+      </div>
+
+      <!-- Prayer Steps -->
+      <div class="mt-16 max-w-3xl mx-auto">
+        <h3 class="font-heading text-2xl text-heading tracking-tight mb-8 text-center">Steps of the Prayer</h3>
+        <div class="space-y-4">
+          <details class="group bg-white border border-border rounded-xl shadow-sm overflow-hidden">
+            <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-bg-alt transition-colors">
+              <div class="flex items-center gap-4">
+                <span class="font-mono text-[10px] uppercase tracking-widest text-accent font-bold bg-emerald-50 px-2 py-1 rounded">Step 1</span>
+                <span class="font-heading font-bold text-heading">Intention & Takbeer</span>
+              </div>
+              <iconify-icon icon="lucide:chevron-down" class="text-body group-open:rotate-180 transition-transform" width="18"></iconify-icon>
+            </summary>
+            <div class="px-6 pb-6 text-sm leading-relaxed text-body border-t border-border pt-5 bg-bg-alt/50">
+              Make the intention in your heart. Face the Qiblah. Raise both hands to your ears and say <strong class="text-heading">"Allahu Akbar"</strong> (Allah is the Greatest). Place your right hand over your left on your chest.
+            </div>
+          </details>
+          <details class="group bg-white border border-border rounded-xl shadow-sm overflow-hidden">
+            <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-bg-alt transition-colors">
+              <div class="flex items-center gap-4">
+                <span class="font-mono text-[10px] uppercase tracking-widest text-accent font-bold bg-emerald-50 px-2 py-1 rounded">Step 2</span>
+                <span class="font-heading font-bold text-heading">Opening Recitation</span>
+              </div>
+              <iconify-icon icon="lucide:chevron-down" class="text-body group-open:rotate-180 transition-transform" width="18"></iconify-icon>
+            </summary>
+            <div class="px-6 pb-6 text-sm leading-relaxed text-body border-t border-border pt-5 bg-bg-alt/50">
+              Recite: <em>"Subhanaka Allahumma wa bihamdika, wa tabarakasmuka..."</em><br><br>
+              Then say <strong>"A'udhu billahi minash-Shaytanir-rajeem"</strong> (I seek refuge in Allah from Satan) and <strong>"Bismillahir-Rahmanir-Raheem"</strong> (In the name of Allah, the Most Gracious, the Most Merciful).
+            </div>
+          </details>
+          <details class="group bg-white border border-border rounded-xl shadow-sm overflow-hidden">
+            <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-bg-alt transition-colors">
+              <div class="flex items-center gap-4">
+                <span class="font-mono text-[10px] uppercase tracking-widest text-accent font-bold bg-emerald-50 px-2 py-1 rounded">Step 3</span>
+                <span class="font-heading font-bold text-heading">Surah Al-Fatiha</span>
+              </div>
+              <iconify-icon icon="lucide:chevron-down" class="text-body group-open:rotate-180 transition-transform" width="18"></iconify-icon>
+            </summary>
+            <div class="px-6 pb-6 text-sm leading-relaxed text-body border-t border-border pt-5 bg-bg-alt/50">
+              <p class="arabic text-center mb-6">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴿١﴾ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ﴿٢﴾ الرَّحْمَٰنِ الرَّحِيمِ ﴿٣﴾ مَالِكِ يَوْمِ الدِّينِ ﴿٤﴾ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ﴿٥﴾ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ﴿٦﴾ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ ﴿٧﴾</p>
+              <p><strong>Translation:</strong> In the name of Allah, the Most Gracious, the Most Merciful. All praise is due to Allah, Lord of the worlds. The Most Gracious, the Most Merciful. Master of the Day of Judgment. You alone we worship, and You alone we ask for help. Guide us on the Straight Path — the path of those You have blessed, not of those who incurred Your wrath, nor of those who have gone astray. <em>(Ameen)</em></p>
+            </div>
+          </details>
+          <details class="group bg-white border border-border rounded-xl shadow-sm overflow-hidden">
+            <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-bg-alt transition-colors">
+              <div class="flex items-center gap-4">
+                <span class="font-mono text-[10px] uppercase tracking-widest text-accent font-bold bg-emerald-50 px-2 py-1 rounded">Step 4</span>
+                <span class="font-heading font-bold text-heading">Ruku (Bowing)</span>
+              </div>
+              <iconify-icon icon="lucide:chevron-down" class="text-body group-open:rotate-180 transition-transform" width="18"></iconify-icon>
+            </summary>
+            <div class="px-6 pb-6 text-sm leading-relaxed text-body border-t border-border pt-5 bg-bg-alt/50">
+              Say <strong>"Allahu Akbar"</strong> and bow down, placing your hands on your knees with your back straight. In ruku, say <strong>"Subhana Rabbiyal-Azeem"</strong> (Glory be to my Lord, the Most Great) at least 3 times. Then stand up straight saying <strong>"Sami'Allahu liman hamidah"</strong>.
+            </div>
+          </details>
+          <details class="group bg-white border border-border rounded-xl shadow-sm overflow-hidden">
+            <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-bg-alt transition-colors">
+              <div class="flex items-center gap-4">
+                <span class="font-mono text-[10px] uppercase tracking-widest text-accent font-bold bg-emerald-50 px-2 py-1 rounded">Step 5</span>
+                <span class="font-heading font-bold text-heading">Sujud (Prostration)</span>
+              </div>
+              <iconify-icon icon="lucide:chevron-down" class="text-body group-open:rotate-180 transition-transform" width="18"></iconify-icon>
+            </summary>
+            <div class="px-6 pb-6 text-sm leading-relaxed text-body border-t border-border pt-5 bg-bg-alt/50">
+              Say <strong>"Allahu Akbar"</strong> and prostrate. In sujud, say <strong>"Subhana Rabbiyal-A'la"</strong> (Glory be to my Lord, the Most High) at least 3 times. This is the closest position to Allah — make dua here freely. Then sit up briefly, and prostrate a second time.
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESSENTIAL DUAS -->
+  <section id="duas" class="py-24 px-6 bg-bg">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="font-mono text-xs uppercase tracking-widest text-accent font-bold mb-4">Supplications</p>
+        <h2 class="font-heading text-4xl md:text-5xl text-heading tracking-tight leading-none mb-4">Essential Daily Duas</h2>
+        <p class="text-lg text-body max-w-2xl mx-auto font-light">Memorize these simple supplications to bring Allah's remembrance into every part of your day.</p>
+      </div>
+
+      <!-- Dua Search -->
+      <div class="max-w-md mx-auto mb-12 relative">
+        <iconify-icon icon="lucide:search" class="absolute left-4 top-1/2 -translate-y-1/2 text-body/50" width="18"></iconify-icon>
+        <input type="text" id="duaSearch" placeholder="Search duas..." oninput="window.filterDuas()" class="w-full pl-12 pr-4 py-3.5 rounded-xl border border-border bg-white shadow-sm text-heading text-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all">
+      </div>
+
+      <div id="duasGrid" class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <!-- Duas injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- QURAN SECTION WITH LIVE API -->
+  <section id="quran" class="py-24 px-6 bg-bg-alt border-y border-border">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div class="sticky top-28">
+          <p class="font-mono text-xs uppercase tracking-widest text-accent font-bold mb-4">Divine Guidance</p>
+          <h2 class="font-heading text-4xl md:text-5xl text-heading tracking-tight leading-none mb-6">Read The Quran</h2>
+          <p class="text-base leading-relaxed mb-6 text-body">
+            The Quran is the literal word of Allah. Read it beautifully rendered in the authentic Uthmani script with English translations synced live from the AlQuran API.
+          </p>
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start gap-3 bg-white p-4 rounded-xl border border-border shadow-sm">
+              <iconify-icon icon="lucide:check-circle" class="text-accent mt-0.5 flex-shrink-0" width="18"></iconify-icon>
+              <p class="text-sm leading-relaxed text-body"><strong class="text-heading">114 Surahs</strong> — Read any chapter instantly.</p>
+            </div>
+            <div class="flex items-start gap-3 bg-white p-4 rounded-xl border border-border shadow-sm">
+              <iconify-icon icon="lucide:check-circle" class="text-accent mt-0.5 flex-shrink-0" width="18"></iconify-icon>
+              <p class="text-sm leading-relaxed text-body"><strong class="text-heading">Authentic Font</strong> — Uses the Amiri Quran script.</p>
+            </div>
+          </div>
+          <div class="bg-white border border-border shadow-sm rounded-xl p-6 relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 opacity-5">
+              <iconify-icon icon="lucide:book-open" width="120"></iconify-icon>
+            </div>
+            <p class="arabic text-center mb-4 text-heading relative z-10" dir="rtl">إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ</p>
+            <p class="text-sm text-body text-center italic relative z-10">"Indeed, this Quran guides to that which is most suitable." — Quran 17:9</p>
+          </div>
+        </div>
+        
+        <div class="space-y-4">
+          <h3 class="font-heading text-xl font-bold text-heading tracking-tight mb-2">Select a Surah</h3>
+          <!-- LIVE SURAH LIST (API) -->
+          <div class="space-y-3 custom-scrollbar" id="surahList">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QURAN READER MODAL (LIVE API) -->
+  <div id="quranModal" class="fixed inset-0 z-[80] hidden items-center justify-center p-4 md:p-6" style="background: rgba(17,24,39,0.5); backdrop-filter: blur(4px);">
+    <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] flex flex-col relative shadow-2xl border border-border">
+      
+      <!-- Header -->
+      <div class="p-6 border-b border-border flex justify-between items-center bg-bg-alt rounded-t-2xl shrink-0">
+        <div>
+          <h3 id="quranModalTitle" class="font-heading font-bold text-2xl text-heading tracking-tight">Surah</h3>
+          <p class="text-xs text-body font-mono mt-1 uppercase tracking-widest"><span class="text-emerald-500 font-bold">●</span> LIVE API CONNECTION</p>
+        </div>
+        <button onclick="window.closeSurah()" class="text-body hover:text-heading transition-colors bg-white p-2 rounded-full border border-border shadow-sm">
+          <iconify-icon icon="lucide:x" width="20"></iconify-icon>
+        </button>
+      </div>
+      
+      <!-- Content Area -->
+      <div id="quranModalContent" class="p-6 md:p-10 overflow-y-auto flex-1 custom-scrollbar">
+        <!-- Verses injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- LIFE OF THE PROPHET -->
+  <section id="prophet" class="py-24 px-6 bg-bg">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="font-mono text-xs uppercase tracking-widest text-accent font-bold mb-4">Role Model</p>
+        <h2 class="font-heading text-4xl md:text-5xl text-heading tracking-tight leading-none mb-4">Prophet Muhammad ﷺ</h2>
+        <p class="text-lg text-body max-w-2xl mx-auto font-light">The final messenger of Allah — his life, character, and teachings are the perfect example for all humanity.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div>
+          <img src="https://unsplash.com/photos/ceNCWYqL8DY/download?force=true&w=800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800&q=80'" alt="Group of people standing around a large building" class="rounded-2xl w-full object-cover aspect-[7/5] mb-8 shadow-sm border border-border">
+          <div class="bg-white border border-border rounded-xl p-6 shadow-sm">
+            <h4 class="font-heading text-lg font-bold text-heading mb-4">Key Facts</h4>
+            <div class="space-y-3 text-sm">
+              <div class="flex justify-between border-b border-bg-alt pb-2"><span class="text-body">Born</span><span class="text-heading font-medium">570 CE, Mecca</span></div>
+              <div class="flex justify-between border-b border-bg-alt pb-2"><span class="text-body">First Revelation</span><span class="text-heading font-medium">610 CE (age 40)</span></div>
+              <div class="flex justify-between border-b border-bg-alt pb-2"><span class="text-body">Migration to Medina</span><span class="text-heading font-medium">622 CE (Hijrah)</span></div>
+              <div class="flex justify-between border-b border-bg-alt pb-2"><span class="text-body">Passed away</span><span class="text-heading font-medium">632 CE (age 63)</span></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-heading text-2xl font-bold text-heading tracking-tight mb-6">His Character</h3>
+          <p class="text-base leading-relaxed mb-8 text-body">
+            The Prophet ﷺ was known as <strong>"Al-Amin"</strong> (the Trustworthy) even before his prophethood. His wife Aisha was asked about his character and replied: <em>"His character was the Quran."</em> He was gentle, patient, humble, generous, brave, and deeply compassionate.
+          </p>
+          <div class="space-y-4 mb-8">
+            <div class="bg-bg-alt p-5 rounded-r-xl border-l-4 border-accent">
+              <p class="text-sm leading-relaxed italic text-heading font-medium">"The strong man is not the one who can overpower others. The strong man is the one who controls himself when he is angry."</p>
+              <p class="font-mono text-[10px] uppercase tracking-widest text-body mt-2">— Bukhari & Muslim</p>
+            </div>
+            <div class="bg-bg-alt p-5 rounded-r-xl border-l-4 border-accent">
+              <p class="text-sm leading-relaxed italic text-heading font-medium">"None of you truly believes until he loves for his brother what he loves for himself."</p>
+              <p class="font-mono text-[10px] uppercase tracking-widest text-body mt-2">— Bukhari & Muslim</p>
+            </div>
+            <div class="bg-bg-alt p-5 rounded-r-xl border-l-4 border-accent">
+              <p class="text-sm leading-relaxed italic text-heading font-medium">"Do not despise any good deed, even meeting your brother with a cheerful face."</p>
+              <p class="font-mono text-[10px] uppercase tracking-widest text-body mt-2">— Muslim</p>
+            </div>
+          </div>
+          <p class="text-xs text-body/70 bg-bg-alt p-3 rounded border border-border inline-block">ﷺ = "May Allah's peace and blessings be upon him."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMON MISCONCEPTIONS -->
+  <section class="py-24 px-6 bg-bg-alt border-y border-border">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="font-mono text-xs uppercase tracking-widest text-accent font-bold mb-4">Clarity</p>
+        <h2 class="font-heading text-4xl md:text-5xl text-heading tracking-tight leading-none mb-4">Common Misconceptions</h2>
+        <p class="text-lg text-body max-w-2xl mx-auto font-light">Let's address some of the most widespread misunderstandings about Islam.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div class="bg-white rounded-xl p-8 border border-border shadow-sm">
+          <div class="flex items-center gap-2 mb-3">
+            <iconify-icon icon="lucide:x-circle" class="text-red-500" width="18"></iconify-icon>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-red-500 font-bold">Myth</span>
+          </div>
+          <p class="text-heading font-heading font-bold text-lg mb-5">"Islam was spread by the sword"</p>
+          <div class="flex items-center gap-2 mb-3 pt-5 border-t border-bg-alt">
+            <iconify-icon icon="lucide:check-circle" class="text-accent" width="18"></iconify-icon>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-accent font-bold">Reality</span>
+          </div>
+          <p class="text-sm text-body leading-relaxed">The Quran clearly states: <em>"There is no compulsion in religion"</em> (2:256). Historically, Islam spread primarily through trade, migration, and the example of Muslim communities. Many regions embraced Islam without any military conquest.</p>
+        </div>
+        <div class="bg-white rounded-xl p-8 border border-border shadow-sm">
+          <div class="flex items-center gap-2 mb-3">
+            <iconify-icon icon="lucide:x-circle" class="text-red-500" width="18"></iconify-icon>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-red-500 font-bold">Myth</span>
+          </div>
+          <p class="text-heading font-heading font-bold text-lg mb-5">"Muslims worship a different God"</p>
+          <div class="flex items-center gap-2 mb-3 pt-5 border-t border-bg-alt">
+            <iconify-icon icon="lucide:check-circle" class="text-accent" width="18"></iconify-icon>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-accent font-bold">Reality</span>
+          </div>
+          <p class="text-sm text-body leading-relaxed">Allah is simply the Arabic word for "God" — the same God of Abraham, Moses, Jesus, and all the prophets. Arab Christians also call God "Allah." Islam teaches that there is only one God, the Creator of everything.</p>
+        </div>
+        <div class="bg-white rounded-xl p-8 border border-border shadow-sm">
+          <div class="flex items-center gap-2 mb-3">
+            <iconify-icon icon="lucide:x-circle" class="text-red-500" width="18"></iconify-icon>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-red-500 font-bold">Myth</span>
+          </div>
+          <p class="text-heading font-heading font-bold text-lg mb-5">"Islam oppresses women"</p>
+          <div class="flex items-center gap-2 mb-3 pt-5 border-t border-bg-alt">
+            <iconify-icon icon="lucide:check-circle" class="text-accent" width="18"></iconify-icon>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-accent font-bold">Reality</span>
+          </div>
+          <p class="text-sm text-body leading-relaxed">Islam granted women the right to inherit, own property, initiate divorce, and choose their husbands 1,400 years ago. The Prophet ﷺ said: "The best of you are those who are best to their women." Cultural practices are often not Islamic teachings.</p>
+        </div>
+        <div class="bg-white rounded-xl p-8 border border-border shadow-sm">
+          <div class="flex items-center gap-2 mb-3">
+            <iconify-icon icon="lucide:x-circle" class="text-red-500" width="18"></iconify-icon>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-red-500 font-bold">Myth</span>
+          </div>
+          <p class="text-heading font-heading font-bold text-lg mb-5">"Muslims don't believe in Jesus"</p>
+          <div class="flex items-center gap-2 mb-3 pt-5 border-t border-bg-alt">
+            <iconify-icon icon="lucide:check-circle" class="text-accent" width="18"></iconify-icon>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-accent font-bold">Reality</span>
+          </div>
+          <p class="text-sm text-body leading-relaxed">Muslims deeply revere Jesus (Isa) as one of the greatest prophets of Islam. He is mentioned by name 25 times in the Quran. Muslims believe in his virgin birth, his miracles, and his second coming — but not that he is God.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ISLAMIC CALENDAR (With 3D PNG Overlays) -->
+  <section class="py-24 px-6 bg-bg">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="font-mono text-xs uppercase tracking-widest text-accent font-bold mb-4">Sacred Times</p>
+        <h2 class="font-heading text-4xl md:text-5xl text-heading tracking-tight leading-none mb-4">Key Islamic Dates & Events</h2>
+        <p class="text-lg text-body max-w-2xl mx-auto font-light">The Islamic calendar is lunar (354 days), so dates shift each year by about 11 days.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white border border-border rounded-xl p-6 shadow-sm relative overflow-hidden group">
+          <img src="https://static.vecteezy.com/system/resources/previews/010/834/237/original/3d-illustration-of-crescent-moon-and-star-png.png" alt="" class="absolute -bottom-4 -right-4 w-24 opacity-10 group-hover:opacity-20 group-hover:scale-110 transition-all duration-500 pointer-events-none z-0">
+          <div class="relative z-10">
+            <div class="text-3xl mb-3">🌙</div>
+            <h3 class="font-heading font-bold text-lg text-heading mb-1">Ramadan</h3>
+            <p class="font-mono text-[10px] uppercase tracking-widest text-accent mb-4">9th Month</p>
+            <p class="text-sm leading-relaxed text-body">The holy month of fasting. Muslims abstain from food, drink, and worldly desires from dawn to sunset.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-border rounded-xl p-6 shadow-sm relative overflow-hidden group">
+          <img src="https://static.vecteezy.com/system/resources/previews/018/742/136/original/3d-star-gold-islamic-decoration-transparent-background-png.png" alt="" class="absolute -bottom-4 -right-4 w-28 opacity-10 group-hover:opacity-20 group-hover:scale-110 transition-all duration-500 pointer-events-none z-0">
+          <div class="relative z-10">
+            <div class="text-3xl mb-3">🎉</div>
+            <h3 class="font-heading font-bold text-lg text-heading mb-1">Eid al-Fitr</h3>
+            <p class="font-mono text-[10px] uppercase tracking-widest text-accent mb-4">1st Shawwal</p>
+            <p class="text-sm leading-relaxed text-body">The "Festival of Breaking the Fast" — a joyous celebration marking the end of Ramadan.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-border rounded-xl p-6 shadow-sm relative overflow-hidden group">
+          <img src="https://static.vecteezy.com/system/resources/previews/011/552/396/original/3d-illustration-kaaba-mecca-png.png" alt="" class="absolute -bottom-6 -right-6 w-32 opacity-[0.08] group-hover:opacity-[0.15] group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500 pointer-events-none z-0">
+          <div class="relative z-10">
+            <div class="text-3xl mb-3">🕋</div>
+            <h3 class="font-heading font-bold text-lg text-heading mb-1">Hajj</h3>
+            <p class="font-mono text-[10px] uppercase tracking-widest text-accent mb-4">Dhul Hijjah</p>
+            <p class="text-sm leading-relaxed text-body">The annual pilgrimage to Mecca — one of the five pillars. Over 2 million Muslims gather to perform rituals.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-border rounded-xl p-6 shadow-sm relative overflow-hidden group">
+          <img src="https://static.vecteezy.com/system/resources/previews/010/834/235/original/3d-illustration-of-islamic-charity-box-png.png" alt="" class="absolute -bottom-4 -right-4 w-28 opacity-10 group-hover:opacity-[0.15] group-hover:scale-110 transition-all duration-500 pointer-events-none z-0">
+          <div class="relative z-10">
+            <div class="text-3xl mb-3">🐑</div>
+            <h3 class="font-heading font-bold text-lg text-heading mb-1">Eid al-Adha</h3>
+            <p class="font-mono text-[10px] uppercase tracking-widest text-accent mb-4">10th Dhul Hijjah</p>
+            <p class="text-sm leading-relaxed text-body">The "Festival of Sacrifice" — performed alongside Hajj, commemorating Ibrahim's devotion to Allah.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECOMMENDED RESOURCES -->
+  <section id="resources" class="py-24 px-6 bg-bg-alt border-y border-border">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="font-mono text-xs uppercase tracking-widest text-accent font-bold mb-4">Keep Learning</p>
+        <h2 class="font-heading text-4xl md:text-5xl text-heading tracking-tight leading-none mb-4">Recommended Resources</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="p-2 bg-emerald-50 rounded-lg border border-emerald-100">
+              <iconify-icon icon="lucide:book-open" class="text-accent" width="20"></iconify-icon>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-heading">Books</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="bg-white border border-border rounded-lg p-5 shadow-sm">
+              <h4 class="font-heading font-bold text-sm text-heading mb-1">"The Complete Idiot's Guide to Understanding Islam"</h4>
+              <p class="text-xs text-body">by Yahiya Emerick</p>
+            </div>
+            <div class="bg-white border border-border rounded-lg p-5 shadow-sm">
+              <h4 class="font-heading font-bold text-sm text-heading mb-1">"A Brief Illustrated Guide to Understanding Islam"</h4>
+              <p class="text-xs text-body">by I.A. Ibrahim</p>
+            </div>
+            <div class="bg-white border border-border rounded-lg p-5 shadow-sm">
+              <h4 class="font-heading font-bold text-sm text-heading mb-1">"Muhammad: His Life Based on the Earliest Sources"</h4>
+              <p class="text-xs text-body">by Martin Lings</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="p-2 bg-emerald-50 rounded-lg border border-emerald-100">
+              <iconify-icon icon="lucide:smartphone" class="text-accent" width="20"></iconify-icon>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-heading">Apps</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="bg-white border border-border rounded-lg p-5 shadow-sm">
+              <h4 class="font-heading font-bold text-sm text-heading mb-1">Muslim Pro</h4>
+              <p class="text-xs text-body">Prayer times, Quran, qiblah</p>
+            </div>
+            <div class="bg-white border border-border rounded-lg p-5 shadow-sm">
+              <h4 class="font-heading font-bold text-sm text-heading mb-1">Quran.com App</h4>
+              <p class="text-xs text-body">Translations & audio</p>
+            </div>
+            <div class="bg-white border border-border rounded-lg p-5 shadow-sm">
+              <h4 class="font-heading font-bold text-sm text-heading mb-1">Dua & Azkar</h4>
+              <p class="text-xs text-body">Daily supplications</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="p-2 bg-emerald-50 rounded-lg border border-emerald-100">
+              <iconify-icon icon="lucide:youtube" class="text-accent" width="20"></iconify-icon>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-heading">YouTube</h3>
+          </div>
+          <div class="space-y-3">
+            <div class="bg-white border border-border rounded-lg p-5 shadow-sm">
+              <h4 class="font-heading font-bold text-sm text-heading mb-1">One Islam Productions</h4>
+              <p class="text-xs text-body">New Muslim guides</p>
+            </div>
+            <div class="bg-white border border-border rounded-lg p-5 shadow-sm">
+              <h4 class="font-heading font-bold text-sm text-heading mb-1">Yaqeen Institute</h4>
+              <p class="text-xs text-body">Research-based content</p>
+            </div>
+            <div class="bg-white border border-border rounded-lg p-5 shadow-sm">
+              <h4 class="font-heading font-bold text-sm text-heading mb-1">How To Pray (First Steps)</h4>
+              <p class="text-xs text-body">Visual step-by-step tutorials</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSPIRATIONAL CLOSING -->
+  <section class="py-24 px-6 bg-bg border-b border-border">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="arabic mb-8 pulse-soft text-accent">وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ</p>
+      <p class="text-xl text-heading font-serif italic mb-8">"And whoever relies upon Allah — then He is sufficient for them."</p>
+      <p class="font-mono text-[10px] uppercase tracking-widest text-body font-bold mb-8">— Quran 65:3</p>
+      <p class="text-base text-body leading-relaxed mb-10">
+        Your journey has just begun. There will be challenges, questions, and moments of doubt — but also immense beauty, peace, and growth. Take it one day at a time, keep learning, keep praying, and never lose hope in Allah's mercy. <strong class="text-heading font-bold">You are exactly where you are meant to be.</strong>
+      </p>
+      <a href="#hero" class="inline-block font-mono text-xs font-bold uppercase tracking-wider bg-dark text-white px-8 py-3.5 rounded-md hover:bg-dark-hover transition-all duration-150 shadow-md hover:shadow-lg">
+        Back to Top
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-16 px-6 bg-bg-alt">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 mb-4">
+            <iconify-icon icon="lucide:book-open" class="text-accent" width="24"></iconify-icon>
+            <span class="font-heading font-bold text-heading text-xl tracking-tight">BeginIslam</span>
+          </div>
+          <p class="text-sm leading-relaxed text-body max-w-md mb-4">
+            A comprehensive resource for new Muslims to learn about Islam at their own pace. Built with love and the hope that it makes your journey a little easier.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-mono text-[10px] uppercase tracking-widest text-heading font-bold mb-4">Learn</h4>
+          <div class="space-y-3">
+            <a href="#getting-started" class="block text-sm text-body hover:text-accent transition-colors font-medium">Getting Started</a>
+            <a href="#pillars" class="block text-sm text-body hover:text-accent transition-colors font-medium">Five Pillars</a>
+            <a href="#iman" class="block text-sm text-body hover:text-accent transition-colors font-medium">Articles of Faith</a>
+            <a href="#prayer" class="block text-sm text-body hover:text-accent transition-colors font-medium">How to Pray</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-mono text-[10px] uppercase tracking-widest text-heading font-bold mb-4">Explore</h4>
+          <div class="space-y-3">
+            <a href="#quran" class="block text-sm text-body hover:text-accent transition-colors font-medium">The Quran</a>
+            <a href="#prophet" class="block text-sm text-body hover:text-accent transition-colors font-medium">Prophet Muhammad ﷺ</a>
+            <a href="#faq" class="block text-sm text-body hover:text-accent transition-colors font-medium">FAQ</a>
+            <a href="#resources" class="block text-sm text-body hover:text-accent transition-colors font-medium">Resources</a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-body font-medium">© 2025 BeginIslam. Made with sincerity for the sake of Allah.</p>
+        <p class="text-sm text-heading arabic">جزاك الله خيراً</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROGRESS MODAL -->
+  <div id="progressModal" class="fixed inset-0 z-[70] hidden items-center justify-center p-6" style="background: rgba(17,24,39,0.5); backdrop-filter: blur(4px);">
+    <div class="bg-white border border-border rounded-2xl max-w-md w-full p-8 relative shadow-2xl">
+      <button onclick="window.closeProgressModal()" class="absolute top-4 right-4 text-body hover:text-heading transition-colors bg-bg-alt p-2 rounded-full">
+        <iconify-icon icon="lucide:x" width="20"></iconify-icon>
+      </button>
+      <h3 class="font-heading font-bold text-2xl text-heading tracking-tight mb-6">Your Learning Progress</h3>
+      <div class="flex items-center justify-center mb-8">
+        <svg width="160" height="160" viewBox="0 0 160 160">
+          <circle cx="80" cy="80" r="70" fill="none" stroke="#F3F4F6" stroke-width="8"/>
+          <circle id="progressCircle" cx="80" cy="80" r="70" fill="none" stroke="#059669" stroke-width="8" stroke-linecap="round"
+            stroke-dasharray="439.82" stroke-dashoffset="439.82" transform="rotate(-90 80 80)" class="progress-ring"/>
+          <text x="80" y="75" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="28" fill="#111827" id="progressText">0%</text>
+          <text x="80" y="98" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6B7280" letter-spacing="0.1em">COMPLETE</text>
+        </svg>
+      </div>
+      <div id="progressList" class="space-y-2 max-h-48 overflow-y-auto custom-scrollbar pr-2">
+        <!-- Injected by JS -->
+      </div>
+      <button onclick="window.resetProgress()" class="mt-8 w-full font-mono text-xs font-bold uppercase tracking-widest border border-border bg-bg-alt px-6 py-3 rounded-md hover:bg-gray-100 transition-all duration-150 text-body">
+        Reset Progress
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // ===== EXPLICIT WINDOW ATTACHMENTS (Fixes Sandboxed iFrame ReferenceErrors) =====
+
+    // Mobile Menu
+    window.toggleMobileMenu = function() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    };
+
+    // Navbar Scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.05)';
+      } else {
+        navbar.style.boxShadow = 'none';
+      }
+    });
+
+    // ===== PROGRESS TRACKING SYSTEM =====
+    const stepNames = {
+      step1: 'Understand the Shahada',
+      step2: 'Learn How to Pray',
+      step3: 'Begin Reading the Quran',
+      step4: 'Find a Muslim Community',
+      step5: 'Learn Daily Duas',
+      step6: 'Build Islamic Character'
+    };
+
+    function getProgress() {
+      try { return JSON.parse(localStorage.getItem('islamProgress') || '{}'); } catch { return {}; }
+    }
+    
+    function saveProgress(data) {
+      localStorage.setItem('islamProgress', JSON.stringify(data));
+    }
+
+    window.markComplete = function(stepId) {
+      const progress = getProgress();
+      progress[stepId] = !progress[stepId]; // toggle the state
+      saveProgress(progress);
+      updateCheckmark(stepId, progress[stepId]);
+      updateProgressModalUI(); // Live update the modal data silently
+    };
+
+    function updateCheckmark(stepId, completed) {
+      const icon = document.getElementById(`checkicon-${stepId}`);
+      if (icon) {
+        icon.style.opacity = completed ? '1' : '0';
+      }
+    }
+
+    function updateAllCheckmarks() {
+      const progress = getProgress();
+      Object.keys(stepNames).forEach(step => {
+        updateCheckmark(step, progress[step]);
+      });
+    }
+
+    window.resetProgress = function() {
+      localStorage.removeItem('islamProgress');
+      updateAllCheckmarks();
+      updateProgressModalUI();
+    };
+
+    function updateProgressModalUI() {
+      const progress = getProgress();
+      const total = Object.keys(stepNames).length;
+      const done = Object.values(progress).filter(Boolean).length;
+      const pct = Math.round((done / total) * 100) || 0;
+      
+      const circle = document.getElementById('progressCircle');
+      const text = document.getElementById('progressText');
+      if (circle && text) {
+        const circumference = 2 * Math.PI * 70;
+        circle.style.strokeDashoffset = circumference - (circumference * pct / 100);
+        text.textContent = pct + '%';
+      }
+
+      const list = document.getElementById('progressList');
+      if (list) {
+        list.innerHTML = '';
+        Object.keys(stepNames).forEach(step => {
+          const isDone = progress[step];
+          list.innerHTML += `
+            <div class="flex items-center gap-3 p-3 rounded-lg border ${isDone ? 'bg-emerald-50 border-emerald-100' : 'bg-white border-border'}">
+              <div class="w-5 h-5 rounded-full border ${isDone ? 'bg-emerald-500 border-emerald-500' : 'border-border'} flex items-center justify-center">
+                ${isDone ? '<iconify-icon icon="lucide:check" class="text-white" width="12"></iconify-icon>' : ''}
+              </div>
+              <span class="text-sm font-medium ${isDone ? 'text-emerald-800' : 'text-body'}">${stepNames[step]}</span>
+            </div>`;
+        });
+      }
+    }
+
+    // Modal Triggers
+    window.openProgressModal = function() {
+      updateProgressModalUI();
+      const modal = document.getElementById('progressModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    };
+
+    window.closeProgressModal = function() {
+      const modal = document.getElementById('progressModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    };
+
+    // Close Modals on background click
+    document.querySelectorAll('[id$="Modal"]').forEach(modal => {
+      modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.classList.add('hidden');
+          this.classList.remove('flex');
+        }
+      });
+    });
+
+    // ===== PILLARS MODAL SYSTEM =====
+    const pillarsData = [
+      {
+        title: 'Shahada — Declaration of Faith',
+        icon: 'lucide:star',
+        content: `<p class="text-sm leading-relaxed text-body mb-4">The Shahada is the declaration that makes someone a Muslim. It is a simple yet profound statement:</p>
+        <div class="bg-bg-alt border border-border rounded-xl p-6 mb-4 text-center">
+          <p class="arabic text-center mb-4 text-heading" dir="rtl">أَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا اللهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللهِ</p>
+          <p class="text-sm italic text-body">"I bear witness that there is no god but Allah, and I bear witness that Muhammad is the messenger of Allah."</p>
+        </div>
+        <p class="text-sm leading-relaxed text-body mb-4"><strong>What it means:</strong></p>
+        <ul class="text-sm leading-relaxed text-body space-y-2 mb-4">
+          <li>• <strong>"La ilaha illa Allah"</strong> — There is no deity worthy of worship except Allah. Nothing and no one deserves your ultimate devotion, love, fear, or hope except the One Creator.</li>
+          <li>• <strong>"Muhammad rasulullah"</strong> — Muhammad is the final messenger of Allah. We follow his example because he was guided by Allah.</li>
+        </ul>
+        <p class="text-sm leading-relaxed text-body">The Shahada must be said with <strong>sincerity, understanding, and conviction</strong>.</p>`
+      },
+      {
+        title: 'Salah — The Five Daily Prayers',
+        icon: 'lucide:clock',
+        content: `<p class="text-sm leading-relaxed text-body mb-4">Salah is the physical, mental, and spiritual act of worship performed five times daily. It is your direct, unmediated connection with Allah.</p>
+        <p class="text-sm leading-relaxed text-body mb-4"><strong>The five prayers are:</strong></p>
+        <ul class="text-sm leading-relaxed text-body space-y-2 mb-4">
+          <li>• <strong>Fajr</strong> — Dawn (2 rak'ahs) — before sunrise</li>
+          <li>• <strong>Dhuhr</strong> — Midday (4 rak'ahs) — after the sun passes its peak</li>
+          <li>• <strong>Asr</strong> — Afternoon (4 rak'ahs) — late afternoon</li>
+          <li>• <strong>Maghrib</strong> — Sunset (3 rak'ahs) — just after the sun sets</li>
+          <li>• <strong>Isha</strong> — Night (4 rak'ahs) — after twilight disappears</li>
+        </ul>
+        <p class="text-sm leading-relaxed text-body mb-4">Each prayer takes approximately 5-10 minutes. A rak'ah is one cycle of standing, bowing, and prostrating.</p>`
+      },
+      {
+        title: 'Zakat — Obligatory Charity',
+        icon: 'lucide:gem',
+        content: `<p class="text-sm leading-relaxed text-body mb-4">Zakat is the obligatory giving of 2.5% of your accumulated wealth and savings once a year.</p>
+        <p class="text-sm leading-relaxed text-body mb-4"><strong>What is zakatable:</strong></p>
+        <ul class="text-sm leading-relaxed text-body space-y-2 mb-4">
+          <li>• Cash savings and bank balances</li>
+          <li>• Gold and silver jewelry (beyond personal use)</li>
+          <li>• Investment returns and business inventory</li>
+          <li>• Rental income</li>
+        </ul>
+        <p class="text-sm leading-relaxed text-body">Zakat purifies your wealth and reminds you that everything belongs to Allah.</p>`
+      },
+      {
+        title: 'Sawm — Fasting in Ramadan',
+        icon: 'lucide:sunrise',
+        content: `<p class="text-sm leading-relaxed text-body mb-4">During the holy month of Ramadan, Muslims fast from dawn (Fajr) to sunset (Maghrib) — abstaining from food, drink, and worldly desires.</p>
+        <p class="text-sm leading-relaxed text-body mb-4"><strong>The purpose of fasting:</strong></p>
+        <ul class="text-sm leading-relaxed text-body space-y-2 mb-4">
+          <li>• Developing <strong>taqwa</strong> (God-consciousness)</li>
+          <li>• Experiencing hunger to feel compassion for the poor</li>
+          <li>• Learning self-discipline and self-control</li>
+        </ul>
+        <p class="text-sm leading-relaxed text-body">The fast is broken with dates and water, followed by the Maghrib prayer and then a meal called <strong>iftar</strong>. Suhoor is the pre-dawn meal.</p>`
+      },
+      {
+        title: 'Hajj — Pilgrimage to Mecca',
+        icon: 'lucide:map-pin',
+        content: `<p class="text-sm leading-relaxed text-body mb-4">Hajj is the pilgrimage to the holy city of Mecca in Saudi Arabia. It is obligatory <strong>once in a lifetime</strong> for those who are physically and financially able.</p>
+        <p class="text-sm leading-relaxed text-body mb-4"><strong>Key rituals of Hajj:</strong></p>
+        <ul class="text-sm leading-relaxed text-body space-y-2 mb-4">
+          <li>• <strong>Ihram</strong> — Entering a state of sacred purity, wearing simple white garments</li>
+          <li>• <strong>Tawaf</strong> — Circling the Kaaba seven times counterclockwise</li>
+          <li>• <strong>Sa'i</strong> — Walking between the hills of Safa and Marwa</li>
+          <li>• <strong>Standing at Arafat</strong> — The most important ritual, a day of supplication</li>
+        </ul>`
+      }
+    ];
+
+    window.openPillarModal = function(index) {
+      const pillar = pillarsData[index];
+      const content = document.getElementById('pillarModalContent');
+      content.innerHTML = `
+        <div class="flex items-center gap-4 mb-8 pb-6 border-b border-border">
+          <div class="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center border border-emerald-100 shrink-0">
+            <iconify-icon icon="${pillar.icon}" class="text-accent" width="32"></iconify-icon>
+          </div>
+          <h3 class="font-heading font-bold text-3xl text-heading tracking-tight">${pillar.title}</h3>
+        </div>
+        <div class="prose prose-sm md:prose-base max-w-none text-body">
+          ${pillar.content}
+        </div>
+      `;
+      const modal = document.getElementById('pillarModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    };
+
+    window.closePillarModal = function() {
+      const modal = document.getElementById('pillarModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    };
+
+    // ===== PRAYER TABS =====
+    const prayerData = [
+      { name: 'Fajr', time: 'Before dawn', rakat: '2 Sunnah + 2 Fard', description: 'The dawn prayer is performed in the quiet stillness before sunrise. It is a beautiful way to start your day in remembrance of Allah.', tip: 'Set multiple alarms and place your phone across the room. The Prophet ﷺ said Fajr is the most difficult prayer for hypocrites.' },
+      { name: 'Dhuhr', time: 'After midday', rakat: '4 Sunnah + 4 Fard + 2 Sunnah', description: 'The midday prayer offers a spiritual break in the middle of your busy day. It resets your focus and reconnects you with Allah.', tip: 'If you\'re at work or school, find a quiet space. Many mosques offer Dhuhr prayer in congregation.' },
+      { name: 'Asr', time: 'Late afternoon', rakat: '4 Sunnah + 4 Fard', description: 'The afternoon prayer is a moment of pause before the day ends.', tip: 'Try to pray Asr on time — don\'t delay it until the sky turns yellow.' },
+      { name: 'Maghrib', time: 'Just after sunset', rakat: '3 Fard + 2 Sunnah', description: 'The sunset prayer is performed immediately after the sun goes below the horizon.', tip: 'Break your fast (if fasting) with dates and water, pray Maghrib, then eat your meal. It has a short window.' },
+      { name: 'Isha', time: 'After nightfall', rakat: '4 Sunnah + 4 Fard + 2 Sunnah + 3 Witr', description: 'The night prayer concludes your day of worship. The Witr prayer is highly recommended.', tip: 'Isha can be prayed up until Fajr time, but the earlier the better.' }
+    ];
+
+    window.switchPrayerTab = function(index) {
+      document.querySelectorAll('.prayer-tab').forEach((tab, i) => {
+        if(i === index) {
+          tab.classList.add('bg-dark', 'text-white');
+          tab.classList.remove('text-body', 'hover:bg-bg-alt');
+        } else {
+          tab.classList.remove('bg-dark', 'text-white');
+          tab.classList.add('text-body', 'hover:bg-bg-alt');
+        }
+      });
+      const p = prayerData[index];
+      const container = document.getElementById('prayerTabContent');
+      container.innerHTML = `
+        <div class="fade-in bg-white border border-border rounded-2xl p-8 shadow-sm">
+          <div class="flex flex-wrap items-center gap-4 mb-6">
+            <h3 class="font-heading font-bold text-2xl text-heading">${p.name} Prayer</h3>
+            <span class="font-mono text-[10px] uppercase tracking-wider bg-bg-alt border border-border px-3 py-1 rounded text-body font-bold">${p.time}</span>
+          </div>
+          <div class="mb-6">
+            <span class="font-mono text-[10px] uppercase tracking-widest text-accent font-bold">Rak\'ahs</span>
+            <p class="text-sm font-medium text-heading mt-1">${p.rakat}</p>
+          </div>
+          <p class="text-sm text-body leading-relaxed mb-6">${p.description}</p>
+          <div class="bg-emerald-50 border border-emerald-100 rounded-xl p-5">
+            <div class="flex items-start gap-3">
+              <iconify-icon icon="lucide:lightbulb" class="text-accent mt-0.5 flex-shrink-0" width="18"></iconify-icon>
+              <div>
+                <p class="font-mono text-[10px] uppercase tracking-widest text-accent font-bold mb-1">Tip for New Muslims</p>
+                <p class="text-sm text-emerald-900 leading-relaxed font-medium">${p.tip}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    };
+
+    // ===== DUAS SYSTEM =====
+    const duasData = [
+      { title: 'Waking Up', arabic: 'الحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ', transliteration: 'Alhamdu lillahilladhi ahyana ba\'da ma amatana wa ilayhin-nushur.', translation: 'All praise is for Allah who gave us life after having taken it from us and unto Him is the resurrection.' },
+      { title: 'Before Eating', arabic: 'بِسْمِ اللَّهِ وَبَرَكَةِ اللَّهِ', transliteration: 'Bismillahi wa barakatillah.', translation: 'In the name of Allah and with the blessings of Allah.' },
+      { title: 'After Eating', arabic: 'الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مِنَ الْمُسْلِمِينَ', transliteration: 'Alhamdu lillahilladhi at\'amana wa saqana wa ja\'alana minal-muslimin.', translation: 'All praise is for Allah who fed us, gave us drink, and made us Muslims.' },
+      { title: 'Before Sleeping', arabic: 'بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا', transliteration: 'Bismikallahumma amutu wa ahya.', translation: 'In Your name, O Allah, I die and I live.' },
+      { title: 'When Feeling Anxious', arabic: 'حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ', transliteration: 'Hasbiyallahu la ilaha illa huwa \'alayhi tawakkaltu wa huwa rabbul-\'arshil-\'azeem.', translation: 'Allah is sufficient for me. There is no god but Him. Upon Him I rely, and He is the Lord of the Great Throne.' },
+      { title: 'For Guidance', arabic: 'اللَّهُمَّ اهْدِنِي وَسَدِّدْنِي', transliteration: 'Allahumma ihdini wa saddidni.', translation: 'O Allah, guide me and keep me on the right path.' },
+    ];
+
+    function renderDuas(filter = '') {
+      const grid = document.getElementById('duasGrid');
+      const filtered = duasData.filter(d =>
+        d.title.toLowerCase().includes(filter.toLowerCase()) ||
+        d.translation.toLowerCase().includes(filter.toLowerCase())
+      );
+      grid.innerHTML = filtered.map(d => `
+        <div class="bg-white border border-border rounded-2xl p-8 hover:border-accent hover:shadow-md transition-all duration-300 shadow-sm flex flex-col">
+          <h4 class="font-heading font-bold text-xl text-heading mb-6 border-b border-bg-alt pb-4">${d.title}</h4>
+          <p class="arabic text-right mb-6 text-heading leading-loose" dir="rtl">${d.arabic}</p>
+          <p class="text-sm font-medium text-accent mb-3 mt-auto">${d.transliteration}</p>
+          <p class="text-sm text-body leading-relaxed">${d.translation}</p>
+        </div>
+      `).join('');
+      if (filtered.length === 0) {
+        grid.innerHTML = '<p class="col-span-2 text-center text-body/60 py-8">No duas found matching your search.</p>';
+      }
+    }
+
+    window.filterDuas = function() {
+      const val = document.getElementById('duaSearch').value;
+      renderDuas(val);
+    };
+
+    // ===== QURAN API SYSTEM =====
+    window.fetchSurahs = async function() {
+      const list = document.getElementById('surahList');
+      list.innerHTML = '<div class="text-center py-8"><iconify-icon icon="lucide:loader-2" class="animate-spin text-accent" width="24"></iconify-icon><p class="text-sm text-body mt-2">Syncing Surahs from Cloud...</p></div>';
+      
+      try {
+        const res = await fetch('https://api.alquran.cloud/v1/surah');
+        const data = await res.json();
+        
+        if (data.code === 200) {
+          // Render all 114 surahs in a beautiful scrollable list
+          list.classList.add('max-h-[500px]', 'overflow-y-auto', 'pr-4');
+          list.innerHTML = data.data.map(s => `
+            <div onclick="window.openSurah(${s.number}, '${s.englishName}')" class="bg-white border border-border rounded-xl p-5 hover:border-accent hover:shadow-md transition-all duration-300 shadow-sm cursor-pointer mb-3">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-heading font-bold text-heading text-lg">${s.number}. ${s.englishName}</span>
+                <span class="font-mono font-bold text-[10px] text-body bg-bg-alt px-2 py-1 rounded border border-border">${s.numberOfAyahs} ayahs</span>
+              </div>
+              <div class="flex justify-between items-center">
+                 <p class="font-mono text-[10px] uppercase tracking-widest text-accent font-bold">${s.englishNameTranslation} • ${s.revelationType}</p>
+                 <p class="arabic text-sm" style="font-size: 1.25rem !important;">${s.name}</p>
+              </div>
+            </div>
+          `).join('');
+        }
+      } catch (e) {
+        list.innerHTML = '<p class="text-red-500 text-sm text-center py-4 bg-red-50 rounded-lg">Failed to load Quran data. Please check your internet connection.</p>';
+      }
+    };
+
+    window.openSurah = async function(id, name) {
+      const modal = document.getElementById('quranModal');
+      const content = document.getElementById('quranModalContent');
+      const title = document.getElementById('quranModalTitle');
+      
+      title.textContent = `Surah ${name}`;
+      content.innerHTML = '<div class="text-center py-20"><iconify-icon icon="lucide:loader-2" class="animate-spin text-accent" width="40"></iconify-icon><p class="mt-4 text-body text-sm font-medium">Fetching authentic Uthmani script...</p></div>';
+      
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      
+      try {
+        // Fetch Arabic (Uthmani) and English translation
+        const res = await fetch(`https://api.alquran.cloud/v1/surah/${id}/editions/quran-uthmani,en.asad`);
+        const data = await res.json();
+        
+        if (data.code === 200) {
+          const arabicEd = data.data[0];
+          const englishEd = data.data[1];
+          
+          let html = '';
+          
+          // Inject Bismillah for all Surahs except Tawbah (Surah 9) and Al-Fatiha (Surah 1 where it's already verse 1)
+          if (id !== 1 && id !== 9) {
+             html += `<p class="arabic text-center mb-10 text-heading pb-6 border-b border-border" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>`;
+          }
+          
+          html += arabicEd.ayahs.map((ayah, i) => `
+            <div class="mb-10 pb-10 border-b border-bg-alt last:border-0 hover:bg-bg-alt/50 transition-colors p-4 rounded-xl">
+              <div class="flex justify-between items-start mb-6 gap-6">
+                <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-sm font-bold shrink-0 mt-2 shadow-sm">${ayah.numberInSurah}</span>
+                <p class="arabic text-right text-heading flex-1" dir="rtl">${ayah.text}</p>
+              </div>
+              <p class="text-sm md:text-base text-body leading-relaxed md:pl-16 font-medium">${englishEd.ayahs[i].text}</p>
+            </div>
+          `).join('');
+          
+          content.innerHTML = html;
+        }
+      } catch (e) {
+        content.innerHTML = '<p class="text-red-500 text-center py-10 bg-red-50 rounded-xl">Error loading verses. Please try again.</p>';
+      }
+    };
+
+    window.closeSurah = function() {
+      const modal = document.getElementById('quranModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    };
+
+    // ===== INIT =====
+    document.addEventListener('DOMContentLoaded', () => {
+      updateAllCheckmarks();
+      window.switchPrayerTab(0);
+      renderDuas();
+      window.fetchSurahs(); // Replaced static renderer with live API call
+    });
+  </script>
+</body>
+</html>

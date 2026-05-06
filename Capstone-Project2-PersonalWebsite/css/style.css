@@ -154,6 +154,52 @@ i {
   gap: 1rem;
 }
 
+/* Resume Section Styles */
+#resume {
+  background-color: #fff;
+  padding: 3rem 0;
+}
+.resume-content {
+    text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #05320b;
+  background: #f9f9f9;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 2rem 2.5rem;
+}
+.resume-content h2 {
+  color: rgb(7, 96, 66);
+  margin-bottom: 1.5rem;
+}
+.resume-section {
+  margin-bottom: 1.5rem;
+}
+.resume-section h3 {
+  font-size: 1.5rem;
+  color: #05320b;
+  margin-bottom: 0.5rem;
+}
+.resume-section ul {
+  list-style: disc inside;
+  padding-left: 1rem;
+  margin: 0.5rem 0 0 0;
+}
+.resume-section ul li {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+.resume-skills li {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+.resume-section p {
+  font-size: 1.1rem;
+  margin: 0.3rem 0 0 0;
+}
+
 footer {
   text-align: center;
   padding: 1rem;
@@ -200,14 +246,13 @@ footer a {
     font-size: 1rem;
     padding: 0;
   }
-  .about-content{
+  .about-content {
     margin: 0;
   }
-  .skills-grid{
+  .skills-grid {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
   }
 }
